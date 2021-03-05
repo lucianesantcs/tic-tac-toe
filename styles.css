@@ -2,6 +2,8 @@
 *::after,
 *::before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -14,9 +16,54 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.board {
-  width: 100vw;
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.7;
+}
+
+.headerMessages {
+  width: 200px;
+  margin: auto;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #111;
+}
+
+.headerMessages span {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.playButton {
+  display: none;
+  padding: 0.5em 0.8em;
+  font-size: 1.09rem;
+  margin: 17px 0 0;
+  background-color: #111;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+.playButton.show {
+  display: block;
+}
+
+.board {
+  width: 100%;
   display: grid;
   justify-content: center;
   justify-items: center;
@@ -115,31 +162,4 @@ body {
   width: calc(var(--mark-size) * 0.7);
   height: calc(var(--mark-size) * 0.7);
   background-color: #fff;
-}
-
-.winning-message {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 5rem;
-}
-
-.winning-message button {
-  font-size: 3rem;
-  background-color: #fff;
-  border: 1px solid #111;
-  padding: 0.25em 0.5em;
-  cursor: pointer;
-}
-
-.winning-message.show {
-  display: flex;
 }

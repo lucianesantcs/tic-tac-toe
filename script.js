@@ -1,8 +1,9 @@
+const headerMessages = document.getElementById("headerMessages");
 const cellElements = document.querySelectorAll("[data-cell]");
 const board = document.getElementById("board");
 const winningMessageTextElement = document.querySelector("[data-winning-message-text]");
 const winningMessageElement = document.getElementById("winningMessage");
-const restartButton = document.getElementById("restartButton");
+const playButton = document.getElementById("playButton");
 const X_CLASS = "x";
 const O_CLASS = "o";
 const WINNING_COMBINATIONS = [
@@ -19,7 +20,9 @@ let circleTurn;
 
 startGame();
 
-restartButton.addEventListener("click", startGame);
+playButton.addEventListener("click", startGame);
+
+headerMessages.innerHTML = `Who's first: <span>${circleTurn ? O_CLASS : X_CLASS}</span>`;
 
 function startGame() {
   circleTurn = false;
@@ -30,13 +33,15 @@ function startGame() {
     cell.addEventListener("click", handleClick, { once: true });
   });
   setBoardHoverClass();
-  winningMessageElement.classList.remove("show");
+  headerMessages.innerHTML = `Who's first: <span>${circleTurn ? O_CLASS : X_CLASS}</span>`;
+  playButton.classList.remove("show");
 }
 
 function handleClick(event) {
   const cell = event.target;
   const currentClass = circleTurn ? O_CLASS : X_CLASS;
-
+  // change player in the html
+  headerMessages.innerHTML = `Next player: <span>${!circleTurn ? O_CLASS : X_CLASS}</span>`;
   // placeMark
   placeMark(cell, currentClass);
 
@@ -55,11 +60,11 @@ function handleClick(event) {
 
 function endGame(draw) {
   if (draw) {
-    winningMessageTextElement.innerText = "Draw!";
+    headerMessages.innerText = "Draw!";
   } else {
-    winningMessageTextElement.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
+    headerMessages.innerText = `${circleTurn ? "O's" : "X's"} Wins!`;
   }
-  winningMessageElement.classList.add("show");
+  playButton.classList.add("show");
 }
 
 function isDraw() {
