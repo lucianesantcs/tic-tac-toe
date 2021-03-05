@@ -12,7 +12,7 @@ Projeto criado através do vídeo <a href="https://www.youtube.com/watch?v=Y-GkM
 
 #### More
 
-O projeto em si era apenas o board game com uma mensagem de display. Adicionei um header, mostrando ali quem é o primeiro a jogar, próximo jogador, e quem ganha, ao invés do display anterior.
+O projeto apenas o board game com uma mensagem de display. Adicionei um header, mostrando ali quem é o primeiro a jogar, próximo jogador, e quem ganha, ao invés do display anterior.
 
 ### Techs
 
