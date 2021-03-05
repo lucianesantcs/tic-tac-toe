@@ -39,7 +39,7 @@ header {
   justify-content: space-around;
   align-items: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid #111;
+  border-bottom: 2px solid #111;
 }
 
 .headerMessages span {
